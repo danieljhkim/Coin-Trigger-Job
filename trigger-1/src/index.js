@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
     "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
   };
   const data = {
-    coins: process.env.COIN_LIST,
+    coins: process.env.COIN_LIST.split(','),
     action: "WRITE_COINS_HOURLY_TO_DB",
     days: process.env.DAYS || 2
   }

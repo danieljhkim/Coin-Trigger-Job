@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { handler } = require('./src/index');
+
+require('dotenv').config();
 const app = express();
-const port =process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 // Start Server
