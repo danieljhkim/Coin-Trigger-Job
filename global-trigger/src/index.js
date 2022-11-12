@@ -11,9 +11,8 @@ exports.handler = async (event, context) => {
     "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
   };
   const data = {
-    coins: process.env.COIN_LIST.split(','),
-    action: "WRITE_COINS_HOURLY_TO_DB",
-    days: process.env.DAYS || 2
+    action: "WRITE_COINS_GLOBAL_TO_DB",
+    interval: process.env['INTERVAL']
   }
   const api_url = process.env['LAMBDA_URL'];
   try {
@@ -22,7 +21,7 @@ exports.handler = async (event, context) => {
         'Content-Type': 'text/plain'
       },
     });
-    payload.data = resp.data;
+    payload.data = "success";
   } catch(e) {
     console.log(e.message);
     payload.message = e.message;

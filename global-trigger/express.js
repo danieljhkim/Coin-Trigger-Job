@@ -18,7 +18,7 @@ app.listen(port, () => {
     const { requestContext: context, ...event } = req.body;
     try {
       const cback = () => {}; 
-      const response = await handler(event, context, cback, req.headers);
+      const response = handler(event, context, cback, req.headers);
       console.log('Response =>', response);
       res.status(200).json(response.body);
     } catch (error) {
